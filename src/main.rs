@@ -1,5 +1,3 @@
-use std::io::{stdout, Write};
-
 use curl::easy::Easy;
 
 // Print a web page onto stdout
@@ -8,7 +6,7 @@ fn main() {
     let mut response = Vec::new();
 
     curl_handle
-        .url(r#"https://wttr.in/StellenboschFarms?format=j1"#)
+        .url(r#"https://wttr.in/YOURLOCATIONHERE?format=j1"#)
         .unwrap();
 
     {
@@ -23,13 +21,6 @@ fn main() {
 
         transfer.perform().unwrap();
     }
-
-    // curl_handle
-    //     .write_function(|data| {
-    //         stdout().write_all(data).unwrap();
-    //         Ok(data.len())
-    //     })
-    //     .unwrap();
 
     curl_handle.perform().unwrap();
 
